@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.16.3",
-      "toolsId": "c99e17ab-6190-4484-87d7-01eaff581c7c"
+      "toolsId": "7ec9e0e2-df85-49ba-a0a2-a52b63fb70c4"
     },
     "dataSources": {
       "mainService": {
@@ -86,17 +86,12 @@
         {
           "pattern": ":?query:",
           "name": "IncidentsList",
-          "target": [
-            "IncidentsList"
-          ]
+          "target": "IncidentsList"
         },
         {
           "pattern": "Incidents({key}):?query:",
           "name": "IncidentsObjectPage",
-          "target": [
-            "IncidentsList",
-            "IncidentsObjectPage"
-          ]
+          "target": "IncidentsObjectPage"
         }
       ],
       "targets": {

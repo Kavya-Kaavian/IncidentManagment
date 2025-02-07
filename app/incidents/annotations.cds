@@ -81,7 +81,7 @@ annotate service.Incidents with @(
             $Type : 'UI.DataField',
             Value : customer.name,
         },
-        TypeImageUrl : 'sap-icon://alert',
+        TypeImageUrl : 'sapicon://alert',
     },
     UI.FieldGroup #Details : {
         $Type : 'UI.FieldGroupType',
@@ -89,12 +89,10 @@ annotate service.Incidents with @(
             {
                 $Type : 'UI.DataField',
                 Value : Status_code,
-                Label : 'Status',
             },
             {
                 $Type : 'UI.DataField',
                 Value : urgency_code,
-                Label : 'Urgency',
             },
         ],
     },
@@ -106,47 +104,50 @@ annotate service.Incidents with {
             $Type : 'Common.ValueListType',
             CollectionPath : 'Customers',
             Parameters : [
-                    {
-                        $Type : 'Common.ValueListParameterInOut',
-                        LocalDataProperty : customer_ID,
-                        ValueListProperty : 'ID',
-                    },
-                    {
-                        $Type : 'Common.ValueListParameterDisplayOnly',
-                        ValueListProperty : 'email',
-                    },
-                    {
-                        $Type : 'Common.ValueListParameterDisplayOnly',
-                        ValueListProperty : 'name',
-                    },
-                ],
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : customer_ID,
+                    ValueListProperty : 'ID',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'name',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'email',
+                },
+            ],
         },
         Common.Text : {
             $value : customer.name,
             ![@UI.TextArrangement] : #TextOnly
         },
-        Common.ValueListWithFixedValues : false,
+        Common.ValueListWithFixedValues : true,
     )
 };
 
 annotate service.Incidents with {
     Status @(
-        Common.Label : '{i18n>Statuscode}',
-        Common.Text : Status.descr,
+        Common.Label : '{i18n>Status}',
         Common.ValueListWithFixedValues : true,
+        Common.Text : Status.descr,
+    )
+};
+
+annotate service.Urgency with {
+    code @(
+        Common.Label : 'urgency/code',
+        Common.Text : descr,
     )
 };
 
 annotate service.Incidents with {
     urgency @(
-        Common.Label : '{i18n>Urgencycode}',
+        Common.Label : '{i18n>Urgency}',
         Common.ValueListWithFixedValues : true,
         Common.Text : urgency.descr,
     )
-};
-
-annotate service.Urgency with {
-    code @Common.Text : descr
 };
 
 annotate service.Status with {
