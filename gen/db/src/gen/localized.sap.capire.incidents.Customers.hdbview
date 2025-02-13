@@ -1,0 +1,16 @@
+VIEW localized_sap_capire_incidents_Customers AS SELECT
+  L.createdAt,
+  L.createdBy,
+  L.modifiedAt,
+  L.modifiedBy,
+  L.ID,
+  L.firstName,
+  L.lastName,
+  L.email,
+  L.phone,
+  L.creditCardNo
+FROM sap_capire_incidents_Customers AS L
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN localized_sap_capire_incidents_Incidents AS incidents ON (incidents.customer_ID = ID),
+  MANY TO MANY JOIN localized_sap_capire_incidents_Addresses AS addresses ON (addresses.customer_ID = ID)
+)
