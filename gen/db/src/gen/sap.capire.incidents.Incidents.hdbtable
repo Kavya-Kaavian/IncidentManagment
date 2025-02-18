@@ -9,9 +9,4 @@ COLUMN TABLE sap_capire_incidents_Incidents (
   urgency_code NVARCHAR(5000) DEFAULT 'M',
   Status_code NVARCHAR(5000) DEFAULT 'N',
   PRIMARY KEY(ID)
-) WITH ASSOCIATIONS (
-  MANY TO ONE JOIN sap_capire_incidents_Customers AS customer ON (customer.ID = customer_ID),
-  MANY TO ONE JOIN sap_capire_incidents_Urgency AS urgency ON (urgency.code = urgency_code),
-  MANY TO ONE JOIN sap_capire_incidents_Status AS Status ON (Status.code = Status_code),
-  MANY TO MANY JOIN sap_capire_incidents_Incidents_conversation AS conversation ON (conversation.up__ID = ID)
 )

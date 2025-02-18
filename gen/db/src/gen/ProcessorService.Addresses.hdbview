@@ -9,6 +9,3 @@ VIEW ProcessorService_Addresses AS SELECT
   Addresses_0.postCode,
   Addresses_0.streetAddress
 FROM sap_capire_incidents_Addresses AS Addresses_0
-WITH ASSOCIATIONS (
-  MANY TO ONE JOIN ProcessorService_Customers AS customer ON (customer.ID = customer_ID)
-)

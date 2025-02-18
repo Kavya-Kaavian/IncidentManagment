@@ -10,7 +10,4 @@ COLUMN TABLE sap_capire_incidents_Customers (
   phone NVARCHAR(5000),
   creditCardNo NVARCHAR(60),
   PRIMARY KEY(ID)
-) WITH ASSOCIATIONS (
-  MANY TO MANY JOIN sap_capire_incidents_Incidents AS incidents ON (incidents.customer_ID = ID),
-  MANY TO MANY JOIN sap_capire_incidents_Addresses AS addresses ON (addresses.customer_ID = ID)
 )

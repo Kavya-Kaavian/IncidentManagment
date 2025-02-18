@@ -9,6 +9,4 @@ COLUMN TABLE sap_capire_incidents_Addresses (
   postCode NVARCHAR(5000),
   streetAddress NVARCHAR(5000),
   PRIMARY KEY(ID)
-) WITH ASSOCIATIONS (
-  MANY TO ONE JOIN sap_capire_incidents_Customers AS customer ON (customer.ID = customer_ID)
 )

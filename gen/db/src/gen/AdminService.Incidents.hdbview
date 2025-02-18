@@ -9,9 +9,3 @@ VIEW AdminService_Incidents AS SELECT
   Incidents_0.urgency_code,
   Incidents_0.Status_code
 FROM sap_capire_incidents_Incidents AS Incidents_0
-WITH ASSOCIATIONS (
-  MANY TO ONE JOIN AdminService_Customers AS customer ON (customer.ID = customer_ID),
-  MANY TO ONE JOIN AdminService_Urgency AS urgency ON (urgency.code = urgency_code),
-  MANY TO ONE JOIN AdminService_Status AS Status ON (Status.code = Status_code),
-  MANY TO MANY JOIN AdminService_Incidents_conversation AS conversation ON (conversation.up__ID = ID)
-)

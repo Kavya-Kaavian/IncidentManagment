@@ -11,7 +11,3 @@ VIEW ProcessorService_Customers AS SELECT
   Customers_0.phone,
   Customers_0.creditCardNo
 FROM sap_capire_incidents_Customers AS Customers_0
-WITH ASSOCIATIONS (
-  MANY TO MANY JOIN ProcessorService_Incidents AS incidents ON (incidents.customer_ID = ID),
-  MANY TO MANY JOIN ProcessorService_Addresses AS addresses ON (addresses.customer_ID = ID)
-)
