@@ -13,10 +13,4 @@ COLUMN TABLE ProcessorService_Incidents_drafts (
   HasDraftEntity BOOLEAN,
   DraftAdministrativeData_DraftUUID NVARCHAR(36) NOT NULL,
   PRIMARY KEY(ID)
-) WITH ASSOCIATIONS (
-  MANY TO ONE JOIN ProcessorService_Customers AS customer ON (customer.ID = customer_ID),
-  MANY TO ONE JOIN ProcessorService_Urgency AS urgency ON (urgency.code = urgency_code),
-  MANY TO ONE JOIN ProcessorService_Status AS Status ON (Status.code = Status_code),
-  MANY TO MANY JOIN ProcessorService_Incidents_conversation_drafts AS conversation ON (conversation.up__ID = ID),
-  MANY TO ONE JOIN ProcessorService_DraftAdministrativeData AS DraftAdministrativeData ON (DraftAdministrativeData.DraftUUID = DraftAdministrativeData_DraftUUID)
 )
